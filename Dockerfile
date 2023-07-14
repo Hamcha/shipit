@@ -16,5 +16,5 @@ FROM public.ecr.aws/docker/library/alpine
 ARG version=unknown
 ARG release=unreleased
 
-COPY --from=builder /wd/target/x86_64-unknown-linux-musl/release/shipit /
-CMD ["/shipit"]
+COPY --from=builder /wd/target/x86_64-unknown-linux-musl/release/shipit /usr/local/bin/
+CMD ["shipit"]
