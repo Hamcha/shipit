@@ -10,19 +10,13 @@ GitOps-enabled environments use git repositories to store deployment manifests. 
 
 ### Git Providers
 
-- [Gitea]
-- (planned) [Azure DevOps]
-- (planned) [BitBucket] (only BitBucket cloud ie. bitbucket.org)
-- (planned) [GitHub] (both GitHub.com and GitHub Enterprise Server)
-- (planned) [GitLab] (both self-managed and gitlab.com)
-
+- `gitea` Gitea / Forgejo
+- `gitlab` GitLab (both self-managed and gitlab.com)
+- (planned) Azure DevOps
+- (planned) BitBucket (only BitBucket cloud ie. bitbucket.org)
+- (planned) GitHub (both GitHub.com and GitHub Enterprise Server)
 ### Templaters
 
-- JSON (generic)
-- YAML (generic)
+- `json` JSON (generic)
+- `yaml` YAML (generic)
 
-[azure devops]: https://azure.microsoft.com/en-us/services/devops/repos/
-[gitlab]: https://gitlab.com
-[github]: https://github.com
-[gitea]: https://gitea.com
-[bitbucket]: https://bitbucket.com
