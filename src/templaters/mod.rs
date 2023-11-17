@@ -1,11 +1,10 @@
-use std::collections::HashMap;
-
+use crate::{commit::FileList, repository::Repository};
 use anyhow::Result;
 use serde::Deserialize;
-
-use crate::{commit::FileList, repository::Repository};
+use std::collections::HashMap;
 
 mod json;
+mod nix;
 mod yaml;
 
 #[derive(Debug, Deserialize)]
@@ -16,6 +15,10 @@ pub enum Mutation {
         changes: HashMap<String, String>,
     },
     Yaml {
+        file: String,
+        changes: HashMap<String, String>,
+    },
+    Nix {
         file: String,
         changes: HashMap<String, String>,
     },
@@ -39,6 +42,12 @@ pub fn mutate(
                 let to_patch = repository.get(file, branch)?;
                 log::debug!("patching YAML file file={file} branch={branch}");
                 let patched = yaml::update_file(&to_patch, changes)?;
+                FileList::from([(file.into(), patched)])
+            }
+            Mutation::Nix { file, changes } => {
+                let to_patch = repository.get(file, branch)?;
+                log::debug!("patching Nix file file={file} branch={branch}");
+                let patched = nix::update_file(&to_patch, changes)?;
                 FileList::from([(file.into(), patched)])
             }
         };

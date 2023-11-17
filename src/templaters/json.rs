@@ -1,8 +1,7 @@
-use std::collections::HashMap;
-
 use anyhow::{anyhow, Result};
 use bytes::Bytes;
 use serde_json::Value;
+use std::collections::HashMap;
 
 /// returns the value at the given path
 fn patch(base: &mut Value, path: &str, value: &str) -> Result<()> {
