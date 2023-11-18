@@ -76,7 +76,7 @@ The required scopes are `api, write_repository` and the role should be Maintaine
 
 ```json
 {
-  "provider": "gitea",
+  "provider": "gitlab",
   "api_url": "https://<your-instance-url>/api/v4",
   "project_id":"<username>/<repo_name>",
   "token": "<token>"
@@ -99,7 +99,7 @@ Templaters are change operations that operate on a specific type of file, unlike
 
 #### JSON
 
-The JSON templater replaces values within a JSON file. Keys are provided as strings using `/` for separation, you can specify array indexes for array (e.g. `nested/field/10/tag` becomes `nested.field[10].tag`).
+The JSON templater replaces values within a JSON file. Keys are provided as strings using `/` for separation, you can specify array indexes for arrays (e.g. `nested/field/10/tag` becomes `nested.field[10].tag`).
 
 Your changeset should look like this:
 
@@ -120,7 +120,7 @@ The fields **MUST** exist in the file or the change will fail.
 
 #### YAML
 
-The YAML templater replaces values within a YAML file. Keys are provided as strings using `.` for separation, you can specify array indexes for array (e.g. `nested.field.10.tag` becomes `nested.field[10].tag`).
+The YAML templater replaces values within a YAML file. Keys are provided as strings using `.` for separation, you can specify array indexes for arrays (e.g. `nested.field.10.tag` becomes `nested.field[10].tag`).
 
 Your changeset should look like this:
 
