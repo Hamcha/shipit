@@ -18,8 +18,8 @@ GitOps-enabled environments use git repositories to store deployment manifests. 
 
 ### Templaters
 
-- JSON (generic)
-- YAML (generic)
+- [JSON](#json)
+- [YAML](#yaml)
 - [Nix](#nix)
 
 ## Usage
