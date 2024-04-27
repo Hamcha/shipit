@@ -1,0 +1,28 @@
+name: 'Deploy with shipit'
+description: 'Use shipit to update GitOps deployments'
+inputs:
+  provider:
+    description: JSON object with your provider configuration
+    required: true
+  changes:
+    description: JSON array of changes to apply
+    required: true
+  branch:
+    description: Branch to apply changes on
+    required: true
+  author:
+    description: Commit author
+    required: false
+  message:
+    description: Commit message
+    required: false
+outputs:
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    SHIPIT_PROVIDER: ${{ inputs.provider }}
+    SHIPIT_CHANGES: ${{ inputs.changes }}
+    SHIPIT_BRANCH: ${{ inputs.branch }}
+    SHIPIT_AUTHOR: ${{ inputs.author }}
+    SHIPIT_MESSAGE: ${{ inputs.message }}
